@@ -18,10 +18,11 @@ const debug = Debug("prisma-boilerplate:server");
  */
 const server = http.createServer(app);
 
+	server.listen(PORT);
 /**
  * Listen on provided port, on all network interfaces.
  */
-server.listen(PORT);
+
 
 /**
  * Event listener for HTTP server "error" event.
