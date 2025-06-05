@@ -8,7 +8,8 @@ export const emailAlreadyRegistered = async (value: string) =>{
 }
 export const newUserRules = [
     body("email")
-        .trim().isEmail().withMessage("A valid email is required.").bail(),
+        .trim().isEmail().withMessage("A valid email is required.").bail()
+        .custom(emailAlreadyRegistered),
     body("password")
         .isString().withMessage("Needs to be a valid string!").bail()
         .isLength({min: 6, max: 191}).withMessage("Password needs to contain atleast 6 characters"),

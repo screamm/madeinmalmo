@@ -22,8 +22,6 @@ const server = http.createServer(app);
 /**
  * Listen on provided port, on all network interfaces.
  */
-
-
 /**
  * Event listener for HTTP server "error" event.
  */

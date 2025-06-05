@@ -13,4 +13,12 @@ model User {
   password   String
   first_name String
   last_name  String
+  blogposts BlogPost[]
+}
+
+model BlogPost {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  content String
+  user User @relation(fields: [id], references: [id])
 }

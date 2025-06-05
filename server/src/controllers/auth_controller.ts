@@ -13,6 +13,8 @@ const SALT_ROUNDS = Number(process.env.SALT_ROUNDS) || 10;
 const ACCESS_TOKEN = process.env.ACCESS_TOKEN_SECRET;
 const REFRESH_TOKEN = process.env.REFRESH_TOKEN_SECRET;
 
+
+// controller for /register endpoint, emails should be unique and handled in validation.
 export const register = async (req: Request, res: Response) => {
     const validatedData: newUser = matchedData(req);
     const hashedPassword = await bcrypt.hash(validatedData.password, SALT_ROUNDS);
@@ -34,6 +36,9 @@ export const register = async (req: Request, res: Response) => {
     }
 }
 
+
+// login controller, matching password with hashed string and salt rounds. req user i attached as a cookie and Access token can be used as
+// auth bearer
 export const login = async (req: Request, res: Response) => {
     const validatedData: Logindata = matchedData(req);
     const {email, password} = validatedData;
@@ -84,6 +89,8 @@ export const login = async (req: Request, res: Response) => {
     });
 }
 
+
+// handler for getting a refresh token if there is an valid access token.
 export const refresh = async (req: Request, res: Response) => {
     const refresh_token = (req.cookies as { refresh_token?: string }).refresh_token;
     if (!refresh_token) {
