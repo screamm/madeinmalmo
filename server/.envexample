@@ -1,0 +1,20 @@
+# Database URL, replace the values with your own
+DATABASE_URL="mysql://root:root@localhost:8889/fed24_books"
+
+# Port where the server will run
+PORT=3000
+
+# Number of rounds for the bcrypt hashing algorithm
+SALT_ROUNDS=10
+
+# Access token lifetime
+ACCESS_TOKEN_LIFETIME="15min"
+
+# Access token secret (generate a random string for this)
+ACCESS_TOKEN_SECRET=
+
+# Refresh token lifetime
+REFRESH_TOKEN_LIFETIME="1h"
+
+# Refresh token secret (generate a DIFFERENT random string for this)
+REFRESH_TOKEN_SECRET=
