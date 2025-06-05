@@ -1,5 +1,5 @@
 # Database URL, replace the values with your own
-DATABASE_URL="mysql://root:root@localhost:8889/fed24_books"
+MONGODB_URI="<URLNAME>"
 
 # Port where the server will run
 PORT=3000
