@@ -1,2 +1,4 @@
-import {BlogPost} from "@prisma/client"
-export type newBlogPost = Omit<BlogPost, "id">
+import { BlogPost } from "@prisma/client"
+
+
+export type newBlogpost = Omit<BlogPost, "id">

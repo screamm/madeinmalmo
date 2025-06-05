@@ -2,6 +2,7 @@
  * Main application routes
  */
 import express from "express";
+import blogRouter from "./blogs"
 import { newUserRules } from "../validations/auth_rules";
 import { requestValidator } from "../middlewates/request_validator";
 import { login, register } from "../controllers/auth_controller";
@@ -15,8 +16,8 @@ router.get("/", (_req, res) => {
 		message: "But first, let me take a selfie 🤳 https://www.youtube.com/watch?v=kdemFfbS5H0",
 	});
 });
-
-
+ // moved all handling into a seperate router file.
+router.use("/blog", blogRouter);
 // route needs to pass validation rules, check if there is any validation errors
 router.post("/register",newUserRules, requestValidator ,register);
 
