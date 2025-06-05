@@ -2,6 +2,10 @@
  * Main application routes
  */
 import express from "express";
+import { newUserRules } from "../validations/auth_rules";
+import { requestValidator } from "../middlewates/request_validator";
+import { login, register } from "../controllers/auth_controller";
+import { loginRules } from "../validations/login_rules";
 
 const router = express.Router();
 
@@ -11,7 +15,8 @@ router.get("/", (_req, res) => {
 	});
 });
 
-
+router.post("/register",newUserRules, requestValidator ,register);
+router.post("/login",loginRules,requestValidator, login);
 
 router.use((req, res) => {
 	// Respond with 404 and a message in JSON-format
